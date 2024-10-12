@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Archivos%20Auxiliar/AyudantiaEd2_2-2024/Ed2Vacapinto2-2024/src/ArbolBinario/ClaseArbolBinario.java</file>
-            <file>file:/D:/Archivos%20Auxiliar/AyudantiaEd2_2-2024/Ed2Vacapinto2-2024/src/ArbolBinario/ClaseNodo.java</file>
+            <file>file:/D:/Archivos%20Auxiliar/AyudantiaEd2_2-2024/Ed2Vacapinto2-2024/src/ArbolMVias/NodoMVias.java</file>
+            <file>file:/D:/Archivos%20Auxiliar/AyudantiaEd2_2-2024/Ed2Vacapinto2-2024/src/ArbolMVias/IArbolBusqueda.java</file>
+            <file>file:/D:/Archivos%20Auxiliar/AyudantiaEd2_2-2024/Ed2Vacapinto2-2024/src/ArbolMVias/ArbolMVias.java</file>
         </group>
     </open-files>
 </project-private>
