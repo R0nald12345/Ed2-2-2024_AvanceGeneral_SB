@@ -6,7 +6,9 @@
 package ArbolMVias;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  *
@@ -199,4 +201,81 @@ public class ArbolMVias<K extends Comparable<K>> implements IArbolBusqueda<K> {
         recorridoEnInOrden(nodoActual.getHijo(nodoActual.cantidadDeClavesNoVacias()), recorrido);
     }
     
+    public int contarCantidadHijosVaciosPorNivel(int n){ //2
+        if(this.raiz == null){
+            return -1;
+        }else{
+            if(n <= altura() ){
+                int contadorHijos = 0;
+                Queue<NodoMVias> colaNodoMVias = new LinkedList<>();
+                colaNodoMVias.add(this.raiz);
+                int nivel = -1;
+                while(!colaNodoMVias.isEmpty()){
+                    int cantidadNodo = colaNodoMVias.size();
+                    nivel++;
+                    for (int i = 0; i < cantidadNodo; i++) {
+                        NodoMVias nodoAuxCola = colaNodoMVias.poll();
+                        
+                        if(nivel == n){
+                            contadorHijos = contadorHijos + nodoAuxCola.cantidadDeHijosVacios();
+                        }
+                        
+                        //Cargo a mi cola los hijos de mi nodoAuxCola
+                        for (int j = 0; j < orden; j++) {
+                            //Cargo los hijos
+                            if(nodoAuxCola.getHijo(j) != null){
+                                colaNodoMVias.add( nodoAuxCola.getHijo(j));
+                            }
+                        }
+                    }
+                    
+                    if(nivel == n){
+                        break;
+                    }
+                }
+                return contadorHijos;
+            }else{
+                return -1;
+            }
+        }
+    }
+    
+     public int contarCantidadClaveVaciosPorNivel(int n){ //2
+        if(this.raiz == null){
+            return -1;
+        }else{
+            if(n <= altura() ){
+                int contadorHijos = 0;
+                Queue<NodoMVias> colaNodoMVias = new LinkedList<>();
+                colaNodoMVias.add(this.raiz);
+                int nivel = -1;
+                while(!colaNodoMVias.isEmpty()){
+                    int cantidadNodo = colaNodoMVias.size();
+                    nivel++;
+                    for (int i = 0; i < cantidadNodo; i++) {
+                        NodoMVias nodoAuxCola = colaNodoMVias.poll();
+                        
+                        if(nivel == n){
+                            contadorHijos = contadorHijos + nodoAuxCola.cantidadDeClavesVacias();
+                        }
+                        
+                        //Cargo a mi cola los hijos de mi nodoAuxCola
+                        for (int j = 0; j < orden; j++) {
+                            //Cargo los hijos
+                            if(nodoAuxCola.getHijo(j) != null){
+                                colaNodoMVias.add( nodoAuxCola.getHijo(j));
+                            }
+                        }
+                    }
+                    
+                    if(nivel == n){
+                        break;
+                    }
+                }
+                return contadorHijos;
+            }else{
+                return -1;
+            }
+        }
+    }
 }

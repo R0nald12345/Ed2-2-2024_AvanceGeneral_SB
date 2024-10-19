@@ -17,9 +17,24 @@ public class Main {
         arbolM.insertar(80);
         arbolM.insertar(90);
         arbolM.insertar(70);
+        arbolM.insertar(78);
+         
+        arbolM.insertar(85);
         arbolM.insertar(100);
+        arbolM.insertar(60);
  
         System.out.println(arbolM.recorridoEnInOrden());
+        
+        System.out.println("cantidad de Hijos por Nivel: "+ arbolM.contarCantidadHijosVaciosPorNivel(0));
+        System.out.println("cantidad de Hijos por Nivel: "+ arbolM.contarCantidadHijosVaciosPorNivel(1));
+        System.out.println("cantidad de Hijos por Nivel: "+ arbolM.contarCantidadHijosVaciosPorNivel(2));
+        System.out.println("cantidad de Hijos por Nivel: "+ arbolM.contarCantidadHijosVaciosPorNivel(100));
+        
+        System.out.println("-------------------------------------------");
+        
+        System.out.println("cantidad de Clave Vacia por Nivel: " + arbolM.contarCantidadClaveVaciosPorNivel(0));
+        System.out.println("cantidad de Clave Vacia por Nivel: " + arbolM.contarCantidadClaveVaciosPorNivel(1));
+        System.out.println("cantidad de Clave Vacia por Nivel: " + arbolM.contarCantidadClaveVaciosPorNivel(2));
         
     }
 }

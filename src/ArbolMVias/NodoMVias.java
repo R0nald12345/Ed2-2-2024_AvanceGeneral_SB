@@ -12,26 +12,25 @@ import java.util.List;
  *
  * @author USER
  */
-
 // k = Valor Numerico
 public class NodoMVias<K> {
-    
+
     private List<K> listaDeClaves;
     private List<NodoMVias<K>> listaDeHijos;
-    
+
     //Contructor
     //Orden = M 
     public NodoMVias(int orden) {
         listaDeHijos = new LinkedList<>();
         listaDeClaves = new LinkedList<>();
         for (int i = 0; i < orden - 1; i++) {
-            listaDeHijos.add(  nodoVacio()  );
+            listaDeHijos.add(nodoVacio());
             listaDeClaves.add((K) datoVacio());
         }
         listaDeHijos.add(nodoVacio());
-    }    
+    }
 
-    public NodoMVias(int orden, K claveInsertar){
+    public NodoMVias(int orden, K claveInsertar) {
         this(orden);
         this.listaDeClaves.set(0, claveInsertar);
     }
@@ -39,9 +38,8 @@ public class NodoMVias<K> {
     public static Object datoVacio() {
         return null;
     }
-    
+
     //-------------------
-    
     public K getClave(int posicion) {
         return this.listaDeClaves.get(posicion);
     }
@@ -50,8 +48,6 @@ public class NodoMVias<K> {
         this.listaDeClaves.set(posicion, clave);
     }
 
-   
-
     public NodoMVias<K> getHijo(int posicion) {
         return this.listaDeHijos.get(posicion);
     }
@@ -59,7 +55,7 @@ public class NodoMVias<K> {
     public void setHijo(int posicion, NodoMVias<K> nodo) {
         this.listaDeHijos.set(posicion, nodo);
     }
-    
+
     //-------------
     public static boolean esNodoVacio(NodoMVias nodo) {
         return nodo == null;
@@ -68,18 +64,16 @@ public class NodoMVias<K> {
     public static NodoMVias nodoVacio() {
         return null;
     }
-    
+
     //Para Verificar si mi Dato = Clave es Vacio
     public boolean esClaveVacia(int posicion) {
         return this.listaDeClaves.get(posicion) == datoVacio();
     }
 
-    
     public boolean esHijoVacio(int posicion) {
         return this.listaDeHijos.get(posicion) == nodoVacio();
     }
-    
-    
+
     public boolean esHoja() {
         for (int i = 0; i < this.listaDeHijos.size(); i++) {
             if (!this.esHijoVacio(i)) {
@@ -97,11 +91,21 @@ public class NodoMVias<K> {
         }
         return true;
     }
-    
+
     public int cantidadDeHijosNoVacios() {
         int cantidad = 0;
         for (int i = 0; i < this.listaDeHijos.size(); i++) {
             if (!this.esHijoVacio(i)) {
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
+
+    public int cantidadDeHijosVacios() {
+        int cantidad = 0;
+        for (int i = 0; i < this.listaDeHijos.size(); i++) {
+            if (this.esHijoVacio(i)) {
                 cantidad++;
             }
         }
@@ -117,7 +121,7 @@ public class NodoMVias<K> {
         }
         return cantidad;
     }
-    
+
     public int cantidadDeClavesVacias() {
         int cantidad = 0;
         for (int i = 0; i < this.listaDeClaves.size(); i++) {
@@ -127,24 +131,23 @@ public class NodoMVias<K> {
         }
         return cantidad;
     }
-      
-   
-    public int sumarDatosDelNodo(){
+
+    public int sumarDatosDelNodo() {
         int contador = 0;
-        for (int i = 0; i < this.listaDeClaves.size() ; i++) {
-            if(this.listaDeClaves.get(i)!= null){
-                contador = contador + (Integer)this.listaDeClaves.get(i);
+        for (int i = 0; i < this.listaDeClaves.size(); i++) {
+            if (this.listaDeClaves.get(i) != null) {
+                contador = contador + (Integer) this.listaDeClaves.get(i);
             }
         }
         return contador;
     }
-    
-    public boolean verificarExisteDatoEnNodo(int dato){
-        
+
+    public boolean verificarExisteDatoEnNodo(int dato) {
+
         boolean bandera = false;
         for (int i = 0; i < this.listaDeClaves.size(); i++) {
-            if(this.listaDeClaves.get(i) != null){
-                if( dato == (Integer)this.listaDeClaves.get(i)){
+            if (this.listaDeClaves.get(i) != null) {
+                if (dato == (Integer) this.listaDeClaves.get(i)) {
 //                    return true;
                     bandera = true;
                 }
@@ -152,5 +155,5 @@ public class NodoMVias<K> {
         }
         return bandera;
     }
-      
+
 }
